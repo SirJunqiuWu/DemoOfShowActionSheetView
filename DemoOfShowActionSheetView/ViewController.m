@@ -53,6 +53,29 @@
     CGRect frame = CGRectMake(0,0,AppWidth,AppHeight);
     WJQShowActionSheetView *showActionSheetView = [[WJQShowActionSheetView alloc]initWithFrame:frame];
     [showActionSheetView showInView:[UIApplication sharedApplication].delegate.window];
+    [showActionSheetView setTouchResult:^(NSInteger index) {
+        [self shareWithTouchIndex:index];
+    }];
+}
+
+- (void)shareWithTouchIndex:(NSInteger)index {
+    switch (index) {
+        case 0:
+            NSLog(@"QQ");
+            break;
+        case 1:
+            NSLog(@"微信");
+            break;
+        case 2:
+            NSLog(@"朋友圈");
+            break;
+        case 3:
+            NSLog(@"微博");
+            break;
+            
+        default:
+            break;
+    }
 }
 
 @end
